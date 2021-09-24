@@ -72,6 +72,8 @@ namespace BDSA2020.Assignment03.Tests
         }
 
         [Theory]
+        [InlineData(0, "")]
+        [InlineData(0, "!")]
         [InlineData(1, "hej")]
         [InlineData(2, "hej. jeg")]
         [InlineData(2, "hej . . heder")]
