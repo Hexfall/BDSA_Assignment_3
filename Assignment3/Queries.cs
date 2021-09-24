@@ -15,7 +15,10 @@ namespace BDSA2020.Assignment03
 
         public static int FirstAppearanceOfSith()
         {
-            throw new NotImplementedException();
+            return (int)(from w in Wizard.Wizards.Value
+                         where w.Name.Trim().ToLower().StartsWith("darth")
+                         orderby w.Year
+                         select w.Year).FirstOrDefault();
         }
 
         public static (string, int) WizardsFromProperty(string property)
