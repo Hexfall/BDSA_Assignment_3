@@ -6,6 +6,7 @@ namespace BDSA2020.Assignment03.Tests
 {
     public delegate string stringConverter(string s);
     public delegate decimal decimalManipulator(decimal d1, decimal d2);
+    public delegate bool stringComparer(string s, int num);
     public class DelegatesTests
     {
         [Theory]
@@ -34,6 +35,24 @@ namespace BDSA2020.Assignment03.Tests
 
             // Assert
             Assert.Equal(expectedOutcome, output);
+        }
+
+        [Theory]
+        [InlineData(" 0042", 42, true)]
+        [InlineData("2", 2, true)]
+        [InlineData("11", 1, false)]
+        [InlineData("0", 0, true)]
+        [InlineData(" 4200    ", 42, false)]
+        [InlineData("     69    ", 420, false)]
+        [InlineData("123", 124, false)]
+        [InlineData("123", 123, true)]
+        public void Compares_Correctly_For_Samples(string str, int number, bool expected)
+        {
+            // Arrange & Act
+            bool output = new stringComparer((s, num) => throw new NotImplementedException())(str, number);
+
+            // Assert
+            Assert.Equal(output, expected);
         }
     }
 }
