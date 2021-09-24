@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using System.Linq;
 
 namespace BDSA2020.Assignment03.Tests
 {
@@ -14,11 +15,8 @@ namespace BDSA2020.Assignment03.Tests
         [InlineData("Jeg heder viktor og jeg programmerer, fordi jeg er en stor dreng!", "!gnerd rots ne re gej idrof ,reremmargorp gej go rotkiv redeh geJ")]
         public void Test1(string org, string expected)
         {
-            // Arrange
-            stringConverter reverser = new stringConverter((string s) => throw new NotImplementedException());
-
-            // Act
-            var output = reverser(org);
+            // Arrange & Act
+            var output = new stringConverter((string s) => s.ToCharArray().Aggregate("", (agg, cur) => cur + agg))(org);
 
             // Assert
             Assert.Equal(expected, output);
