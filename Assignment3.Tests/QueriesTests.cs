@@ -24,7 +24,7 @@ namespace BDSA2020.Assignment03.Tests
             int year = FirstAppearanceOfSith();
 
             // Assert
-            Assert.Equal(1980, year);
+            Assert.Equal(1977, year);
         }
     }
 }
