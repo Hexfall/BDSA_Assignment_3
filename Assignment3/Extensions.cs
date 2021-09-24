@@ -7,7 +7,7 @@ namespace BDSA2020.Assignment03
     public static class Extensions
     {
         public static IEnumerable<T> Flatten<T>(this IEnumerable<IEnumerable<T>> items) => items.Aggregate((IEnumerable<T>)new List<T>(), (agg, item) => agg.Concat(item));
-        public static IEnumerable<T> Filter<T>(this IEnumerable<T> items, Predicate<T> predicate) => throw new NotImplementedException();
+        public static IEnumerable<T> Filter<T>(this IEnumerable<T> items, Predicate<T> predicate) => items.Where(o => predicate(o));
         public static bool IsSecure(this Uri uri) => throw new NotImplementedException();
         public static int WordCount(this string str) => throw new NotImplementedException();
     }
