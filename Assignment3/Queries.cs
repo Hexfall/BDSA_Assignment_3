@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BDSA2020.Assignment03
 {
@@ -7,7 +8,9 @@ namespace BDSA2020.Assignment03
     {
         public static IEnumerable<string> WizardsByAuthor(string author)
         {
-            throw new NotImplementedException();
+            return from w in Wizard.Wizards.Value
+                   where w.Creator.Trim().ToLower() == author.Trim().ToLower()
+                   select w.Name;
         }
 
         public static int FirstAppearanceOfSith()
