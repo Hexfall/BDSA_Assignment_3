@@ -26,5 +26,24 @@ namespace BDSA2020.Assignment03.Tests
             // Assert
             Assert.Equal(1977, year);
         }
+
+        [Fact]
+        public void Gets_Unique_Wizards_From_HP()
+        {
+            // Arrange
+            HashSet<(string, int)> expectedOutput = new HashSet<(string, int)> {
+                ("Harry Potter", 1997),
+                ("Hermione Granger", 1997),
+                ("Ron Weasley", 1997),
+                ("Severus Snape", 1997),
+                ("Dumbledore", 1997),
+            };
+
+            // Act
+            var output = WizardsFromProperty("Harry Potter");
+
+            // Assert
+            Assert.Equal(expectedOutput, output);
+        }
     }
 }
