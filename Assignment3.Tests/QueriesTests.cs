@@ -16,5 +16,15 @@ namespace BDSA2020.Assignment03.Tests
             // Assert
             Assert.Equal(new HashSet<string> { "Harry Potter", "Hermione Granger", "Ron Weasley", "Severus Snape", "Dumbledore" }, new HashSet<string> (wiz));
         }
+
+        [Fact]
+        public void Gets_First_Sith_Lord_Appearance()
+        {
+            // Arrange & Act
+            int year = FirstAppearanceOfSith();
+
+            // Assert
+            Assert.Equal(1980, year);
+        }
     }
 }
