@@ -45,5 +45,40 @@ namespace BDSA2020.Assignment03.Tests
             // Assert
             Assert.Equal(expectedOutput, output);
         }
+
+        [Fact]
+        public void Groups_By_Creator()
+        {
+            // Arrange
+            IEnumerable<(string, IEnumerable<string>)> expectedOutput = (IEnumerable<(string, IEnumerable<string>)>) new (string, IEnumerable<string>)[] {
+                ("T.H. White", (IEnumerable<string>)new string[] { "Merlin" }),
+                ("J.R.R. Tolkien", (IEnumerable<string>)new string[] {
+                    "Sauron",
+                    "Sauroman",
+                    "Radagast",
+                    "Gandalf",
+                }),
+                ("J.K.Rowling", (IEnumerable<string>)new string[] {
+                    "Severus Snape",
+                    "Ron Weasley",
+                    "Hermione Granger",
+                    "Harry Potter",
+                    "Dumbledore",
+                }),
+                ("George Lucas", (IEnumerable<string>)new string[] {
+                    "Yoda",
+                    "Darth Vader",
+                    "Darth Sidius",
+                    "Darth Plagueis",
+                    "Darth Maul",
+                }),
+            };
+
+            // Act
+            var output = WizardsByCreators();
+
+            // Assert
+            Assert.Equal(expectedOutput, output);
+        }
     }
 }

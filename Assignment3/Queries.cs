@@ -28,9 +28,12 @@ namespace BDSA2020.Assignment03
                                               select (w.Name, (int)w.Year));
         }
 
-        public static IEnumerable<Dictionary<string, IEnumerable<Wizard>>> WizardsByCreators()
+        public static IEnumerable<(string, IEnumerable<string>)> WizardsByCreators()
         {
-            throw new NotImplementedException();
+            return (from w in Wizard.Wizards.Value
+                    group w.Name by w.Creator into g
+                    select g).Select(o => (o.Key, o.Select(el => el)));
+
         }
     }
 }
