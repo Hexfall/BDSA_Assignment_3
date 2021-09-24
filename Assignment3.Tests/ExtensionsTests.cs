@@ -70,5 +70,17 @@ namespace BDSA2020.Assignment03.Tests
             // Assert
             Assert.False(output);
         }
+
+        [Theory]
+        [InlineData(1, "hej")]
+        [InlineData(2, "hej. jeg")]
+        [InlineData(2, "hej . . heder")]
+        [InlineData(3, "hej ... jeg, heder !!")]
+        [InlineData(7, "Wherefore art, thou Romeo? Ya dang,, man !?!")]
+        public void WordCount_Returns_Correctly_For_Sample_Strings(int words, string str)
+        {
+            // Act & Assert
+            Assert.Equal(words, str.WordCount());
+        }
     }
 }
