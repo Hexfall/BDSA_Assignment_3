@@ -34,7 +34,15 @@ namespace BDSA2020.Assignment03.Tests
         [Fact]
         public void Filters_By_Leap_Years()
         {
+            // Arrange
+            Predicate<int> pred = (year) => year % 400 == 0 || year % 4 == 0 ^ year % 100 == 0;
+            int[] ys = { 101, 100, 400, 510, 512, 1500, 1600, 1604, 1700 };
 
+            // Act
+            var output = ys.Filter(pred);
+
+            // Assert
+            Assert.Equal(new int[] { 400, 512, 1600, 1604 }, output);
         }
     }
 }
