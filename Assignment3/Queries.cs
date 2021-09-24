@@ -21,9 +21,11 @@ namespace BDSA2020.Assignment03
                          select w.Year).FirstOrDefault();
         }
 
-        public static (string, int) WizardsFromProperty(string property)
+        public static HashSet<(string, int)> WizardsFromProperty(string property)
         {
-            throw new NotImplementedException();
+            return new HashSet<(string, int)>(from w in Wizard.Wizards.Value
+                                              where w.Medium.ToLower().Contains(property.ToLower())
+                                              select (w.Name, (int)w.Year));
         }
 
         public static IEnumerable<Dictionary<string, IEnumerable<Wizard>>> WizardsByCreators()
