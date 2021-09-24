@@ -49,7 +49,7 @@ namespace BDSA2020.Assignment03.Tests
         public void Compares_Correctly_For_Samples(string str, int number, bool expected)
         {
             // Arrange & Act
-            bool output = new stringComparer((s, num) => throw new NotImplementedException())(str, number);
+            bool output = new stringComparer((s, num) => int.Parse(s.Trim()) == num)(str, number);
 
             // Assert
             Assert.Equal(output, expected);
