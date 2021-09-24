@@ -30,7 +30,7 @@ namespace BDSA2020.Assignment03.Tests
         public void Decimal_Product_Returns_Correctly_For_Sample_Decimals(decimal d1, decimal d2, decimal expectedOutcome)
         {
             // Arrange & Act
-            var output = new decimalManipulator((d1, d2) => throw new NotImplementedException())(d1, d2);
+            var output = new decimalManipulator((d1, d2) => d1*d2)(d1, d2);
 
             // Assert
             Assert.Equal(expectedOutcome, output);
