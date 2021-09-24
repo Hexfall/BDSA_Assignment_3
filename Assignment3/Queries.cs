@@ -5,7 +5,7 @@ namespace BDSA2020.Assignment03
 {
     public class Queries
     {
-        public static IEnumerable<Wizard> WizardsByAuthor(string author)
+        public static IEnumerable<string> WizardsByAuthor(string author)
         {
             throw new NotImplementedException();
         }
