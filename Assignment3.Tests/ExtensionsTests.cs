@@ -48,20 +48,26 @@ namespace BDSA2020.Assignment03.Tests
         [Fact]
         public void IsSecure_Returns_True_For_HTTPS()
         {
-            Uri uri = new Uri("https://google.com");
+            // Arrange
+            Uri uri = new("https://google.com");
 
+            // Act
             var output = uri.IsSecure();
 
+            // Assert
             Assert.True(output);
         }
 
         [Fact]
         public void IsSecure_Returns_False_For_HTTP()
         {
-            Uri uri = new Uri("http://google.com");
+            // Arrange
+            Uri uri = new("http://google.com");
 
+            // Act
             var output = uri.IsSecure();
 
+            // Assert
             Assert.False(output);
         }
     }
