@@ -28,11 +28,11 @@ namespace BDSA2020.Assignment03
                                               select (w.Name, (int)w.Year));
         }
 
-        public static IEnumerable<(string, IEnumerable<string>)> WizardsByCreators()
+        public static IEnumerable<string> WizardsByCreators()
         {
-            return (from w in Wizard.Wizards.Value
-                    group w.Name by w.Creator into g
-                    select g).Select(o => (o.Key, o.Select(el => el)));
+            return from w in Wizard.Wizards.Value
+                   orderby w.Creator descending, w.Name descending
+                   select w.Name;
 
         }
     }
