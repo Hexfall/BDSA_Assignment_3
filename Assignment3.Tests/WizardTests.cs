@@ -5,11 +5,11 @@ namespace BDSA2020.Assignment03.Tests
     public class WizardTests
     {
         [Fact]
-        public void Wizards_contains_2_wizards()
+        public void Wizards_contains_15_wizards()
         {
             var wizards = Wizard.Wizards.Value;
 
-            Assert.Equal(2, wizards.Count);
+            Assert.Equal(15, wizards.Count);
         }
 
         [Theory]
